@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Global Facility Management Magazine</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Global Facility Management Magazine" />
+  <meta property="og:description" content="Medio editorial profesional sobre Facility Management, operaciones, mantenimiento, tecnología e infraestructura." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop" />
+  <meta property="og:url" content="https://globalfmm.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{--brand:#0d2538;--accent:#0d8bd7;--ink:#1b2430;--muted:#6b7583;--bg:#f6f8fb;--card:#fff;--ring:#e3eaf2}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,'Noto Sans','Helvetica Neue',sans-serif;background:var(--bg);color:var(--ink)}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    /* NAV */
+    header.nav{position:sticky;top:0;z-index:50;background:rgba(13,37,56,.95);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #163a52}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0;color:#d9e9f7}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand img{width:34px;height:34px;object-fit:contain}
+    .brand .name{display:flex;flex-direction:column;line-height:1}
+    .brand .title{margin:0;font-size:15px;color:#fff;font-weight:700}
+    .menu{display:flex;gap:14px;align-items:center}
+    .menu a{color:#cfe3f7}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px}
+    .btn-primary{background:var(--accent);color:#fff}
+    .hamb{display:none;background:none;border:1px solid #2e5774;border-radius:10px;color:#cfe3f7;padding:8px 10px}
+    @media (max-width:880px){
+      .menu{display:none;position:absolute;right:20px;top:58px;background:#0d2538;padding:12px;border:1px solid #23465f;border-radius:12px;flex-direction:column;min-width:180px}
+      .hamb{display:block}
+      .menu.show{display:flex}
+      .brand .title{font-size:14px}
+    }
+    /* HERO */
+    .hero{position:relative;isolation:isolate}
+    .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
+    .hero .wrap{position:relative;display:grid;align-items:center;min-height:58vh}
+    .hero h2{color:#fff;font-size:42px;margin:0 0 10px}
+    .hero p{color:#d6ebfb;max-width:760px;margin:0 0 18px}
+    @media (max-width:600px){.hero h2{font-size:32px} .hero p{font-size:16px}}
+    /* GRID SECTIONS */
+    section{padding:60px 0}
+    h3.section{margin:0 0 12px;color:var(--brand);font-size:26px}
+    p.lead{color:var(--muted);margin:0 0 20px}
+    .grid{display:grid;gap:18px}
+    .cards{grid-template-columns:repeat(3,1fr)}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;overflow:hidden}
+    .card img{width:100%;height:160px;object-fit:cover}
+    .card .body{padding:16px}
+    .chip{display:inline-block;background:#eef6ff;color:#0b5ea8;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .articles{grid-template-columns:2fr 1fr}
+    .article{background:var(--card);border:1px solid var(--ring);border-radius:16px;overflow:hidden}
+    .article img{width:100%;height:220px;object-fit:cover}
+    .article .body{padding:18px}
+    .list .item{background:var(--card);border:1px solid var(--ring);border-radius:12px;padding:14px}
+    .list .item+.item{margin-top:12px}
+    /* FAQ */
+    details{background:var(--card);border:1px solid var(--ring);border-radius:12px;padding:14px}
+    details+details{margin-top:12px}
+    summary{cursor:pointer;font-weight:600;color:var(--brand)}
+    /* CONTACT */
+    .nl{background:#0d2538;color:#cfe0f1;border-radius:18px;padding:24px;border:1px solid #24455f}
+    .nl form{display:grid;gap:10px}
+    .nl input,.nl textarea{border:1px solid #3a5c76;border-radius:10px;padding:12px 14px;background:#0b1c2a;color:#e8f4ff}
+    .nl button{border:0;background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;cursor:pointer}
+    /* FOOTER */
+    footer{background:#0d2538;color:#b5c9da;padding:36px 0;margin-top:30px}
+    .footer-grid{display:grid;gap:18px;grid-template-columns:1.2fr .8fr .8fr}
+    footer a{color:#e0f0ff}
+    .small{font-size:13px;color:#90a6b8}
+    @media (max-width:980px){.cards{grid-template-columns:1fr 1fr}.articles{grid-template-columns:1fr}.hero .wrap{min-height:52vh}}
+    @media (max-width:620px){.cards{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="logo-gfmm.png" alt="GFMM" />
+        <div class="name">
+          <p class="title">Global Facility Management Magazine</p>
+        </div>
+      </div>
+      <button class="hamb" aria-label="Menú" onclick="document.querySelector('.menu').classList.toggle('show')">☰</button>
+      <nav class="menu">
+        <a href="#enfoque">Enfoque</a>
+        <a href="#articulos">Artículos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="document.getElementById('about').showModal()">Quiénes somos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="bg" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop" alt="Infraestructura moderna" />
+    <div class="container wrap">
+      <div>
+        <h2>Conocimiento accionable para operar edificios, servicios y activos críticos.</h2>
+        <p>Un medio independiente de FM de habla hispana. Publicamos guías, entrevistas, métricas y herramientas que mejoran la continuidad operacional, la experiencia de usuarios y los resultados.</p>
+        <a class="btn btn-primary" href="https://www.linkedin.com/company/109559947/" target="_blank" rel="noopener">Seguir en LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFOQUE -->
+  <section id="enfoque">
+    <div class="container">
+      <h3 class="section">Nuestro enfoque</h3>
+      <p class="lead">Vemos el FM como un sistema: activos, personas y tecnología trabajando con propósito.</p>
+      <div class="grid cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop" alt="Activos & mantenimiento">
+          <div class="body"><span class="chip">Activos & Mantenimiento</span><h4>Confiabilidad y continuidad</h4><p>RCM, planes preventivos, CBM, criticidad y desempeño. KPIs que importan.</p></div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Tecnología & datos">
+          <div class="body"><span class="chip">Tecnología & Data</span><h4>CMMS, IoT e IA aplicada</h4><p>De BMS a gemelos digitales. Analítica para decisiones en tiempo real.</p></div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop" alt="Personas & ESG">
+          <div class="body"><span class="chip">Personas & ESG</span><h4>Experiencia y sostenibilidad</h4><p>Workplace, HSE, energía, residuos y cultura de servicio. Resultados visibles.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTÍCULOS -->
+  <section id="articulos">
+    <div class="container">
+      <h3 class="section">Artículos destacados</h3>
+      <div class="grid articles">
+        <article class="article">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1400&auto=format&fit=crop" alt="Caso de estudio">
+          <div class="body">
+            <span class="chip">Caso</span>
+            <h4>Cómo reducir 18% el tiempo fuera de servicio en chillers críticos</h4>
+            <p class="lead">Metodología de criticidad + sensores + rondas digitales. Checklist descargable.</p>
+            <a href="#" aria-disabled="true">Leer (pronto)</a>
+          </div>
+        </article>
+        <div class="list">
+          <div class="item"><strong>Checklist de puesta en marcha post-parada</strong><br><span class="small">Plantillas y secuencias mínimas</span></div>
+          <div class="item"><strong>Del Excel al CMMS: hoja de ruta</strong><br><span class="small">Datos maestros, OT y SLAs</span></div>
+          <div class="item"><strong>KPIs que importan</strong><br><span class="small">MTBF, MTTR, Backlog, cumplimiento preventivo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h3 class="section">Preguntas frecuentes</h3>
+      <details><summary>¿La revista vende publicidad?</summary><p>El foco es editorial. Podríamos publicar avisos curados si aportan valor real a la comunidad.</p></details>
+      <details><summary>¿Publican contenido de terceros?</summary><p>Sí, bajo pauta editorial: claridad técnica, evidencia y utilidad práctica.</p></details>
+      <details><summary>¿Cómo proponer un artículo?</summary><p>Escríbenos con el esquema del contenido y objetivos. Respondemos a todos.</p></details>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="nl">
+        <h3 style="margin:0 0 6px">Contacto</h3>
+        <p class="small">¿Tienes un caso de estudio, notas o recursos para compartir? Escríbenos.</p>
+        <form name="contacto" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contacto" />
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+          <input type="email" name="email" placeholder="tu@correo.com" required />
+          <textarea name="mensaje" rows="4" placeholder="Cuéntanos brevemente" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <dialog id="about">
+    <div style="background:#0d2538;color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center">
+      <strong>Quiénes somos</strong>
+      <button style="border:0;background:#ffffff22;color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer" onclick="document.getElementById('about').close()">Cerrar</button>
+    </div>
+    <div style="padding:18px">
+      <p>Global Facility Management Magazine es un medio independiente de habla hispana que reúne a los líderes y especialistas del Facility Management. Buscamos elevar la conversación sobre activos, tecnología y servicios, conectando a quienes operan, mantienen y transforman los espacios donde trabajamos y vivimos. Nuestra misión es inspirar una gestión más humana, sostenible y basada en evidencia.</p>
+      <ul>
+        <li>Contenido: guías, entrevistas, comparativas, casos de estudio.</li>
+        <li>Alcance: Profesionales de habla hispana, con foco en operaciones reales.</li>
+        <li>Valores: rigor técnico, ética profesional, mejora continua.</li>
+      </ul>
+      <p>Canal principal: <a href="https://www.linkedin.com/company/109559947/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    </div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong style="color:#fff">Global Facility Management Magazine</strong>
+        <p class="small">Medio editorial para profesionales del Facility Management en habla hispana.</p>
+      </div>
+      <div>
+        <div class="small" style="color:#fff;margin-bottom:6px">Canales</div>
+        <p><a href="https://www.linkedin.com/company/109559947/" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p><a href="mailto:contacto@globalfmm.com">contacto@globalfmm.com</a></p>
+      </div>
+      <div>
+        <div class="small" style="color:#fff;margin-bottom:6px">Legal</div>
+        <p class="small">© 2025 GFMM. Todos los derechos reservados.</p>
+        <p class="small"><a href="#">Política de privacidad</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cierra el menú móvil al elegir una opción
+    document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>{
+      document.querySelector('.menu').classList.remove('show');
+    }));
+  </script>
+
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+  _linkedin_partner_id = "8231730";
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+  (function(l) {
+    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+    window.lintrk.q=[]}
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript"; b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+  })(window.lintrk);
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt=""
+  src="https://px.ads.linkedin.com/collect/?pid=8231730&fmt=gif" />
+</noscript>
+
+</body>
+</html>
