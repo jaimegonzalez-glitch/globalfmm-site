@@ -4,103 +4,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Global Facility Management Magazine</title>
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Global Facility Management Magazine" />
-  <meta property="og:description"
-    content="Medio editorial profesional sobre Facility Management, operaciones, mantenimiento, tecnología e infraestructura." />
-  <meta property="og:image"
-    content="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop" />
-  <meta property="og:url" content="https://globalfmm.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <title>Global Facility Management Magazine | El Futuro del FM</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Outfit:wght@300;400;600;700&display=swap"
     rel="stylesheet">
+
   <style>
     :root {
-      --navy: #051C2C;
-      --blue: #0045A1;
-      --white: #FFFFFF;
-      --bg: #F0F2F5;
-      --text: #1b2430;
-      --muted: #64748B;
-      --border: #E2E8F0;
+      --navy-deep: #020b14;
+      --navy-light: #051c2c;
+      --electric-blue: #0096ff;
+      --electric-glow: rgba(0, 150, 255, 0.4);
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --white: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.7);
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    html,
-    body {
       margin: 0;
       padding: 0;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
+    }
+
+    body {
+      background-color: var(--navy-deep);
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(0, 70, 161, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(0, 150, 255, 0.1) 0%, transparent 40%);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* GLASSMORPHISM UTILITY */
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
     }
 
     h1,
     h2,
-    h3,
-    h4 {
+    h3 {
       font-family: 'Baskervville', serif;
       font-weight: 400;
-      color: var(--navy);
-      margin-top: 0;
-    }
-
-    a {
-      color: var(--blue);
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    a:hover {
-      opacity: 0.8;
+      letter-spacing: -0.01em;
     }
 
     .container {
-      max-width: 1280px;
+      max-width: 1300px;
       margin: 0 auto;
       padding: 0 40px;
     }
 
     /* NAVIGATION */
     header.nav {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-inner {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+      max-width: 1220px;
+      height: 70px;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 80px;
+      padding: 0 30px;
+      transition: all 0.4s ease;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
     }
 
     .brand img {
-      height: 40px;
+      height: 32px;
     }
 
     .brand .title {
       font-weight: 700;
       font-size: 18px;
-      margin: 0;
-      color: var(--navy);
-      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .menu {
@@ -110,242 +107,234 @@
     }
 
     .menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
       font-weight: 500;
-      font-size: 15px;
-      color: var(--navy);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      font-weight: 600;
-      font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-radius: 2px;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      transition: 0.3s;
     }
 
-    .btn-primary {
-      background: var(--blue);
+    .menu a:hover {
+      opacity: 1;
+      color: var(--electric-blue);
+    }
+
+    .btn-glow {
+      background: linear-gradient(135deg, var(--electric-blue), #0056b3);
       color: var(--white);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--electric-glow);
+      transition: 0.3s;
     }
 
-    /* HERO */
-    .hero {
-      background: var(--navy);
-      color: var(--white);
-      padding: 100px 0;
+    .btn-glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--electric-glow);
+    }
+
+    /* HERO SECTION */
+    section.hero {
+      padding: 180px 0 100px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop') center/cover;
-      opacity: 0.2;
-      z-index: 1;
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 10;
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
       align-items: center;
     }
 
-    .hero h1 {
-      color: var(--white);
-      font-size: 56px;
+    .hero-content h1 {
+      font-size: 64px;
       line-height: 1.1;
       margin-bottom: 24px;
     }
 
-    .hero p {
-      font-size: 20px;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 32px;
+    .hero-content p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
       max-width: 500px;
     }
 
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-image-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      pointer-events: none;
+    }
+
     /* BENTO GRID */
-    section {
-      padding: 80px 0;
+    .bento-section {
+      padding: 100px 0;
     }
 
-    .section-title {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .section-lead {
-      font-size: 18px;
-      color: var(--muted);
-      margin-bottom: 48px;
-      max-width: 700px;
+    .section-header {
+      margin-bottom: 60px;
     }
 
     .bento-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(2, 300px);
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 380px);
+      gap: 30px;
     }
 
-    .bento-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 32px;
+    .bento-card {
+      padding: 40px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-end;
+      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
-      overflow: hidden;
-      transition: 0.3s;
     }
 
-    .bento-item:hover {
-      border-color: var(--blue);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    .bento-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--electric-blue);
+      box-shadow: 0 10px 40px rgba(0, 150, 255, 0.15);
     }
 
-    .bento-item h3 {
-      font-size: 24px;
-      margin-bottom: 16px;
+    .bento-card h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
     }
 
-    .bento-item p {
-      color: var(--muted);
+    .bento-card p {
+      color: var(--text-muted);
       font-size: 16px;
-      margin: 0;
     }
 
-    .bento-item .label {
+    .bento-card .tag {
+      position: absolute;
+      top: 30px;
+      left: 30px;
       font-size: 11px;
-      text-transform: uppercase;
       font-weight: 700;
-      color: var(--blue);
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      display: block;
+      color: var(--electric-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
     }
 
-    .item-lg {
-      grid-column: span 6;
+    .card-large {
+      grid-column: span 1;
       grid-row: span 2;
     }
 
-    .item-md {
-      grid-column: span 6;
+    .card-wide {
+      grid-column: span 2;
       grid-row: span 1;
     }
 
-    .item-sm {
-      grid-column: span 3;
-      grid-row: span 1;
+    .card-img-bg {
+      background-size: cover;
+      background-position: center;
     }
 
-    .item-img {
-      padding: 0;
-    }
-
-    .item-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .item-img .content {
+    .card-overlay {
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
       right: 0;
-      padding: 32px;
-      background: linear-gradient(transparent, rgba(5, 28, 44, 0.9));
-      color: var(--white);
+      bottom: 0;
+      background: linear-gradient(to top, rgba(2, 11, 20, 0.9), transparent);
+      border-radius: 20px;
+      z-index: 1;
     }
 
-    .item-img .content h3 {
-      color: var(--white);
-      margin: 0;
+    .bento-card .content-z {
+      position: relative;
+      z-index: 10;
     }
 
     /* FOOTER */
     footer {
-      background: var(--navy);
-      color: var(--white);
-      padding: 80px 0 40px;
+      padding: 100px 0 50px;
+      margin-top: 100px;
+      border-top: 1px solid var(--glass-border);
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
     }
 
     .footer-col h4 {
-      color: var(--white);
-      font-weight: 700;
       font-size: 14px;
       text-transform: uppercase;
-      margin-bottom: 24px;
-      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.1em;
+      margin-bottom: 25px;
+      color: var(--electric-blue);
     }
 
-    .footer-col p {
-      color: rgba(255, 255, 255, 0.6);
+    .footer-col p,
+    .footer-col li {
       font-size: 14px;
-    }
-
-    .footer-links {
+      color: var(--text-muted);
       list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-links li {
       margin-bottom: 12px;
     }
 
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 14px;
-    }
-
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 60px;
+      margin-top: 80px;
       padding-top: 30px;
+      border-top: 1px solid var(--glass-border);
       display: flex;
       justify-content: space-between;
-    }
-
-    .footer-bottom p {
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.4);
+      color: var(--text-muted);
     }
 
-    | @media (max-width: 1024px) {
-      .hero .container {
+    @media (max-width: 1024px) {
+      .hero-grid {
         grid-template-columns: 1fr;
       }
 
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
       .bento-grid {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
       }
 
-      .item-lg,
-      .item-md,
-      .item-sm {
-        grid-column: span 6;
+      .card-large,
+      .card-wide {
+        grid-column: span 2;
       }
     }
 
@@ -354,243 +343,196 @@
         padding: 0 20px;
       }
 
-      .hero h1 {
-        font-size: 36px;
+      header.nav {
+        width: calc(100% - 40px);
       }
 
-      .item-lg,
-      .item-md,
-      .item-sm {
-        grid-column: span 12;
+      .hero-content h1 {
+        font-size: 40px;
       }
 
-      .footer-grid {
+      .bento-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+      }
+
+      .card-large,
+      .card-wide {
+        grid-column: span 1;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <img src="logo-gfmm.png" alt="GFMM" />
-        <div class="name">
-          <p class="title">Global Facility Management Magazine</p>
-        </div>
-      </div>
-      <button class="hamb" aria-label="Menú"
-        onclick="document.querySelector('.menu').classList.toggle('show')">☰</button>
-      <nav class="menu">
-        <a href="#enfoque">Enfoque</a>
-        <a href="#articulos">Artículos</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto">Contacto</a>
-        <a class="btn btn-primary" href="javascript:void(0)"
-          onclick="document.getElementById('about').showModal()">Quiénes somos</a>
-      </nav>
+  <!-- NAVIGATION -->
+  <header class="nav glass">
+    <div class="brand">
+      <img src="logo-gfmm.png" alt="GFMM Logo">
+      <span class="title">Global FM Magazine</span>
     </div>
+    <nav class="menu">
+      <a href="#enfoque">Enfoque</a>
+      <a href="#insights">Insights</a>
+      <a href="#contacto">Contacto</a>
+      <button class="btn-glow">Suscribirse</button>
+    </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
-      <div>
-        <h1>El futuro del Facility Management es inteligente, sostenible y humano.</h1>
-        <p>Liderando la conversación sobre activos, tecnología y servicios críticos en el mundo de habla hispana.</p>
-        <a class="btn btn-primary" href="#articulos">Explorar Artículos</a>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>El futuro del Facility Management es <span style="color:var(--electric-blue)">humano</span>.</h1>
+        <p>Liderando la evolución estratégica de los espacios mediante inteligencia predictiva y excelencia operacional.
+        </p>
+        <button class="btn-glow" style="padding: 15px 35px; font-size: 14px;">Explorar Edición 2026</button>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop"
+          alt="Innovación en equipo">
+        <div style="position:absolute; bottom:20px; left:20px; right:20px; padding:20px;" class="glass">
+          <p style="font-size:12px; font-weight:700; color:var(--electric-blue); margin-bottom:5px;">ACTUALIDAD</p>
+          <p style="font-size:14px;">La cumbre global de FM 2026: Resumen y Conclusiones Clave</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ENFOQUE (BENTO GRID) -->
-  <section id="enfoque">
+  <!-- BENTO GRID -->
+  <section id="enfoque" class="bento-section">
     <div class="container">
-      <h2 class="section-title">Nuestro Enfoque</h2>
-      <p class="section-lead">Transformando la gestión de espacios mediante el equilibrio entre activos, personas y
-        tecnología.</p>
+      <div class="section-header">
+        <h2 style="font-size: 42px; margin-bottom: 10px;">Nuestra Perspectiva</h2>
+        <p style="color: var(--electric-blue); font-weight: 600;">VISIÓN ESTRATÉGICA Y TECNOLÓGICA</p>
+      </div>
 
       <div class="bento-grid">
-        <div class="bento-item item-lg item-img">
-          <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop"
-            alt="Innovación">
-          <div class="content">
-            <span class="label">Visión 2030</span>
+        <!-- Main Card -->
+        <div class="bento-card glass card-large card-img-bg"
+          style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop');">
+          <div class="card-overlay"></div>
+          <div class="content-z">
+            <span class="tag">Innovación</span>
             <h3>Gestión Inteligente de Activos</h3>
-            <p>Maximizando el ciclo de vida mediante IoT y analítica predictiva.</p>
+            <p>De la reactividad a la inteligencia predictiva total basada en IoT.</p>
           </div>
         </div>
 
-        <div class="bento-item item-md">
-          <span class="label">Estrategia</span>
-          <h3>Eficiencia Operacional</h3>
-          <p>Optimizando procesos críticos para garantizar la continuidad del negocio.</p>
+        <!-- Medium Card -->
+        <div class="bento-card glass card-wide">
+          <span class="tag">Resultados</span>
+          <h3>Eficiencia Operacional Sin Compromisos</h3>
+          <p>Optimizando infraestructuras críticas para garantizar la continuidad del negocio y el retorno de inversión
+            estratégica.</p>
         </div>
 
-        <div class="bento-item item-sm">
-          <span class="label">Sostenibilidad</span>
-          <h3>ESG en FM</h3>
-          <p>Reduciendo el impacto ambiental de los edificios.</p>
+        <!-- Small Card 1 -->
+        <div class="bento-card glass">
+          <span class="tag">Sostenibilidad</span>
+          <h3>ESG Integrado</h3>
+          <p>Métricas reales para edificios net-zero y operaciones responsables.</p>
         </div>
 
-        <div class="bento-item item-sm">
-          <span class="label">Personas</span>
-          <h3>HVAC & Confort</h3>
-          <p>Mejorando la experiencia de los usuarios.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ARTICULOS -->
-  <section id="articulos" style="background: var(--white);">
-    <div class="container">
-      <h2 class="section-title">Artículos Destacados</h2>
-      <div class="bento-grid">
-        <div class="bento-item item-md">
-          <span class="label">Caso de Estudio</span>
-          <h3>Reducción del 18% en tiempos de parada</h3>
-          <p>Implementación de sensores inteligentes en chillers industriales.</p>
-        </div>
-        <div class="bento-item item-md item-img">
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
-            alt="Equipo profesional">
-          <div class="content">
-            <h3>Liderazgo y Gestión de Equipos</h3>
-          </div>
+        <!-- Small Card 2 -->
+        <div class="bento-card glass">
+          <span class="tag">Personas</span>
+          <h3>Experiencia del Usuario</h3>
+          <p>Redefiniendo el bienestar mediante el diseño centrado en el ocupante.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
+  <!-- ARTICLES SECTION -->
+  <section id="insights" style="padding-bottom: 100px;">
     <div class="container">
-      <h3 class="section">Preguntas frecuentes</h3>
-      <details>
-        <summary>¿La revista vende publicidad?</summary>
-        <p>El foco es editorial. Podríamos publicar avisos curados si aportan valor real a la comunidad.</p>
-      </details>
-      <details>
-        <summary>¿Publican contenido de terceros?</summary>
-        <p>Sí, bajo pauta editorial: claridad técnica, evidencia y utilidad práctica.</p>
-      </details>
-      <details>
-        <summary>¿Cómo proponer un artículo?</summary>
-        <p>Escríbenos con el esquema del contenido y objetivos. Respondemos a todos.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <div class="container">
-      <div class="nl">
-        <h3 style="margin:0 0 6px">Contacto</h3>
-        <p class="small">¿Tienes un caso de estudio, notas o recursos para compartir? Escríbenos.</p>
-        <form name="contacto" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contacto" />
-          <input type="text" name="nombre" placeholder="Tu nombre" required />
-          <input type="email" name="email" placeholder="tu@correo.com" required />
-          <textarea name="mensaje" rows="4" placeholder="Cuéntanos brevemente" required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
+      <h2
+        style="font-size: 32px; margin-bottom: 40px; border-bottom: 1px solid var(--glass-border); padding-bottom: 20px;">
+        Últimas Noticias</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div class="glass" style="padding: 25px;">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop"
+            style="width:100%; border-radius:12px; margin-bottom:20px;">
+          <h4 style="font-size: 20px; margin-bottom: 10px;">Drones y el Futuro de la Inspección</h4>
+          <p style="font-size: 14px; color: var(--text-muted);">Optimización de mantenimientos preventivos en altura
+            mediante visión computacional.</p>
+        </div>
+        <div class="glass" style="padding: 25px;">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
+            style="width:100%; border-radius:12px; margin-bottom:20px;">
+          <h4 style="font-size: 20px; margin-bottom: 10px;">La Iluminación Centrada en el Ser Humano</h4>
+          <p style="font-size: 14px; color: var(--text-muted);">Cómo los sistemas circadianos impulsan la productividad
+            en entornos híbridos.</p>
+        </div>
+        <div class="glass" style="padding: 25px;">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop"
+            style="width:100%; border-radius:12px; margin-bottom:20px;">
+          <h4 style="font-size: 20px; margin-bottom: 10px;">Facility Leadership 2030</h4>
+          <p style="font-size: 14px; color: var(--text-muted);">Las competencias clave para el nuevo gestor de activos
+            inmobiliarios corporativos.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- MODAL -->
-  <dialog id="about">
-    <div
-      style="background:#0d2538;color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center">
-      <strong>Quiénes somos</strong>
-      <button style="border:0;background:#ffffff22;color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer"
-        onclick="document.getElementById('about').close()">Cerrar</button>
-    </div>
-    <div style="padding:18px">
-      <p>Global Facility Management Magazine es un medio independiente de habla hispana que reúne a los líderes y
-        especialistas del Facility Management. Buscamos elevar la conversación sobre activos, tecnología y servicios,
-        conectando a quienes operan, mantienen y transforman los espacios donde trabajamos y vivimos. Nuestra misión es
-        inspirar una gestión más humana, sostenible y basada en evidencia.</p>
-      <ul>
-        <li>Contenido: guías, entrevistas, comparativas, casos de estudio.</li>
-        <li>Alcance: Profesionales de habla hispana, con foco en operaciones reales.</li>
-        <li>Valores: rigor técnico, ética profesional, mejora continua.</li>
-      </ul>
-      <p>Canal principal: <a href="https://www.linkedin.com/company/109559947/" target="_blank"
-          rel="noopener">LinkedIn</a>.</p>
-    </div>
-  </dialog>
 
   <!-- FOOTER -->
   <footer>
     <div class="container footer-grid">
-      <div class="footer-col">
-        <h4 style="color: var(--white); font-family: 'Inter', sans-serif;">Global Facility Management Magazine</h4>
-        <p>Proporcionamos conocimiento accionable para aquellos que operan el mundo construido. Nuestra misión es elevar
-          el estándar del FM en Hispanoamérica.</p>
+      <div class="footer-col" style="grid-column: span 1.5;">
+        <h3 style="color:var(--white); margin-bottom:20px;">Global FM Magazine</h3>
+        <p>Liderando la evolución estratégica de los espacios mediante conocimiento accionable y análisis experto de
+          primer nivel.</p>
       </div>
       <div class="footer-col">
-        <h4>Recursos</h4>
+        <h4>Insights</h4>
         <ul class="footer-links">
-          <li><a href="#enfoque">Enfoque</a></li>
-          <li><a href="#articulos">Artículos</a></li>
-          <li><a href="https://www.linkedin.com/company/109559947/">LinkedIn</a></li>
+          <li>Tecnología</li>
+          <li>Sostenibilidad</li>
+          <li>Operaciones</li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contacto</h4>
+        <h4>Compañía</h4>
         <ul class="footer-links">
-          <li><a href="mailto:contacto@globalfmm.com">contacto@globalfmm.com</a></li>
-          <li><a href="#">Suscripción</a></li>
+          <li>Sobre nosotros</li>
+          <li>Contacto</li>
+          <li>Anúnciate</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <ul class="footer-links">
+          <li>LinkedIn</li>
+          <li>Newsletter</li>
         </ul>
       </div>
     </div>
-    <div class="container">
-      <div class="footer-bottom">
-        <p>© 2026 Global Facility Management Magazine. Todos los derechos reservados.</p>
-        <div style="display: flex; gap: 20px;">
-          <a href="#" class="small" style="color: rgba(255,255,255,0.4);">Privacidad</a>
-          <a href="#" class="small" style="color: rgba(255,255,255,0.4);">Términos</a>
-        </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Global Facility Management Magazine. Todos los derechos reservados.</p>
+      <div style="display:flex; gap:20px;">
+        <a href="#" style="color:var(--text-muted); text-decoration:none;">Privacidad</a>
+        <a href="#" style="color:var(--text-muted); text-decoration:none;">Términos</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Cierra el menú móvil al elegir una opción
-    document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => {
-      document.querySelector('.menu').classList.remove('show');
-    }));
-  </script>
-
-  <!-- LinkedIn Insight Tag -->
-  <script type="text/javascript">
-    _linkedin_partner_id = "8231730";
-    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-  </script>
-  <script type="text/javascript">
-    (function (l) {
-      if (!l) {
-        window.lintrk = function (a, b) { window.lintrk.q.push([a, b]) };
-        window.lintrk.q = []
+    // Dinamic scroll for header
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('header.nav');
+      if (window.scrollY > 100) {
+        nav.style.top = '0';
+        nav.style.width = '100%';
+        nav.style.borderRadius = '0';
+        nav.style.background = 'rgba(2, 11, 20, 0.9)';
+      } else {
+        nav.style.top = '20px';
+        nav.style.width = 'calc(100% - 80px)';
+        nav.style.borderRadius = '20px';
+        nav.style.background = 'var(--glass)';
       }
-      var s = document.getElementsByTagName("script")[0];
-      var b = document.createElement("script");
-      b.type = "text/javascript"; b.async = true;
-      b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-      s.parentNode.insertBefore(b, s);
-    })(window.lintrk);
+    });
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none;" alt=""
-      src="https://px.ads.linkedin.com/collect/?pid=8231730&fmt=gif" />
-  </noscript>
-
 </body>
 
 </html>
